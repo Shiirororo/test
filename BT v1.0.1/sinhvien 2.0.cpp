@@ -28,10 +28,11 @@ void SinhVien::Input () {                           //Ham de nhap thong tin sinh
 void SinhVien::Write (fstream &fs) {                //Ham de ghi thong tin sinh vien vao text
     fs.open("data_log.txt", ios::app);
     if (fs.is_open()) {
-    fs << this->msv << " ";
-    fs << this->HoVaTen << " ";
-    fs << this->birth << " ";
-    fs << this->gpa << " "; 
+    fs << this->msv;
+    fs << ";";
+    fs << this->HoVaTen << ";";
+    fs << this->birth << ";";
+    fs << this->gpa << ";"; 
     fs << endl;
     fs.close();
     }
@@ -65,14 +66,7 @@ int main () {
         a[i].Input();
         a[i].Write(fs);
     }
-    fs.open("data_log.txt", ios::in);
-    if (fs.is_open()) {
-        string line;
-        while (getline(fs, line)) {
-            cout << line << endl;
-        }
-        fs.close();
-    }
+    // Read(fs);
 
     // sort(a, a+ n, GPAcompare);
     // for (int i = 0; i < n; i++) {
